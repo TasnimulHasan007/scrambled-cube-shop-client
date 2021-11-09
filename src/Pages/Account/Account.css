@@ -3,4 +3,5 @@
   align-items: center;
   justify-content: center;
   padding-block: 40px;
+  min-height: 400px;
 }

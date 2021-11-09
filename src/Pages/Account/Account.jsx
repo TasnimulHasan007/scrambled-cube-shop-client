@@ -1,5 +1,11 @@
 import { Container } from '@mui/material'
-import { useRouteMatch, Switch, Route } from 'react-router-dom'
+import {
+  useRouteMatch,
+  Switch,
+  Route,
+  useHistory,
+  useLocation,
+} from 'react-router-dom'
 import Login from '../../components/Login/Login'
 import PageBanner from '../../components/PageBanner/PageBanner'
 import Register from '../../components/Register/Register'
@@ -7,6 +13,9 @@ import Header from '../../Shared/Header/Header'
 import './Account.css'
 
 const Account = () => {
+  // history & location
+  const history = useHistory()
+  const location = useLocation()
   // useRouteMatch for nested routes
   const { path, url } = useRouteMatch()
   return (
@@ -17,13 +26,13 @@ const Account = () => {
         <div className="form-container">
           <Switch>
             <Route exact path={path}>
-              <Login url={url} />
+              <Login url={url} history={history} location={location} />
             </Route>
             <Route path={`${path}/login`}>
-              <Login url={url} />
+              <Login url={url} history={history} location={location} />
             </Route>
             <Route path={`${path}/register`}>
-              <Register url={url} />
+              <Register url={url} history={history} location={location} />
             </Route>
           </Switch>
         </div>
