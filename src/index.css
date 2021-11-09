@@ -2,7 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&family=Roboto&display=swap');
 
 /* variables */
-
+:root {
+  /* colors */
+  --clr-primary: #42f56c;
+  --bg-light: #cffcd9;
+  --text-dark: #474747;
+}
 /* resets */
 * {
   margin: 0;

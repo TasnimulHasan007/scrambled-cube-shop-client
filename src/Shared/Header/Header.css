@@ -1,0 +1,29 @@
+#header {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  box-shadow: none;
+  padding-block: 14px;
+}
+
+#header .logo {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+#header .logo img {
+  max-height: 64px;
+  margin-right: 14px;
+}
+
+#header .nav-link {
+  color: var(--text-dark);
+  font-size: 14px;
+  line-height: 9px;
+  letter-spacing: 0.4px;
+  margin-left: 40px;
+}
+
+#header .active {
+  font-weight: 600;
+}
