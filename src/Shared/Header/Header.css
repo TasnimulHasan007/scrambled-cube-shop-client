@@ -25,7 +25,11 @@
   margin-left: 40px;
 }
 
-#header .active,
-#dashboard .header .active {
+#header .active {
   font-weight: 600;
+}
+
+#dashboard .active {
+  background: var(--clr-primary);
+  color: #fff;
 }

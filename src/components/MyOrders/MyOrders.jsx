@@ -3,20 +3,17 @@ import {
   Card,
   CardActions,
   CardContent,
-  Container,
   Grid,
-  Box,
-  LinearProgress,
   Typography,
   Table,
   TableBody,
   TableRow,
   TableCell,
+  CircularProgress,
 } from '@mui/material'
 import { useEffect, useState } from 'react'
 import useAuth from '../../hooks/useFirebase'
-import Header from '../../Shared/Header/Header'
-import PageBanner from '../PageBanner/PageBanner'
+import { useConfirm } from 'material-ui-confirm'
 
 const MyOrders = () => {
   // states
@@ -39,18 +36,47 @@ const MyOrders = () => {
         })
     }
   }, [user, token])
+  // confirm
+  const confirm = useConfirm()
+  // handler cancel order
+  const handleCancelOrder = orderId => {
+    confirm({
+      title: 'Are you sure?',
+      description: 'This will cancel your order',
+    })
+      .then(() => {
+        console.log(orderId)
+        fetch(`http://localhost:5000/orders/${orderId}`, {
+          method: 'DELETE',
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount) {
+              setOrders(orders.filter(order => order._id !== orderId))
+            }
+          })
+      })
+
+      .catch(() => {})
+  }
 
   // return
   return (
     <>
-      <Header />
-      {loading && (
-        <Box>
-          <LinearProgress color="inherit" />
-        </Box>
-      )}
-      <PageBanner pageName="My Orders" />
-      <Container maxWidth="xl" sx={{ py: 4 }}>
+      {loading ? (
+        <CircularProgress
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: 'var(--clr-primary)',
+          }}
+        />
+      ) : (
         <Grid container spacing={3}>
           {orders.length ? (
             orders.map(order => (
@@ -59,7 +85,7 @@ const MyOrders = () => {
                 xs={12}
                 sm={6}
                 md={4}
-                lg={3}
+                xl={3}
                 key={order._id}
                 sx={{ textAlign: 'center' }}
               >
@@ -131,6 +157,7 @@ const MyOrders = () => {
                     <Button
                       color="inherit"
                       style={{ color: '#fff', width: '100%' }}
+                      onClick={() => handleCancelOrder(order._id)}
                     >
                       Cancel Order
                     </Button>
@@ -142,7 +169,7 @@ const MyOrders = () => {
             <p>No orders to show</p>
           )}
         </Grid>
-      </Container>
+      )}
     </>
   )
 }

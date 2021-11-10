@@ -52,7 +52,7 @@ const Header = () => {
           {user.email ? (
             <>
               <NavLink
-                to="/myOrders"
+                to="dashboard/myOrders"
                 className={link => (link.isActive ? 'active' : '')}
               >
                 <span className="nav-link">My Orders</span>

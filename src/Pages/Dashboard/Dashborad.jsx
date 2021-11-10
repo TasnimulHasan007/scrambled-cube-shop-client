@@ -15,7 +15,7 @@ import {
   Typography,
 } from '@mui/material'
 import useAuth from '../../hooks/useAuth'
-import { NavLink, Link, useRouteMatch, Switch, Route } from 'react-router-dom'
+import { NavLink, useRouteMatch, Switch, Route } from 'react-router-dom'
 import Pay from '../../components/Pay/Pay'
 import MyOrders from '../../components/MyOrders/MyOrders'
 import Review from '../../components/Review/Review'
@@ -64,44 +64,72 @@ const Dashborad = props => {
       <List>
         {admin ? (
           <>
-            <Link to={`${url}/manageOrders`} style={{ width: '100%' }}>
+            <NavLink
+              className={link => (link.isActive ? 'active' : '')}
+              to={`${url}/manageOrders`}
+              style={{ width: '100%' }}
+            >
               <ListItem button>
                 <ListItemText primary="Manage All Orders" />
               </ListItem>
-            </Link>
-            <Link to={`${url}/addProduct`} style={{ width: '100%' }}>
+            </NavLink>
+            <NavLink
+              className={link => (link.isActive ? 'active' : '')}
+              to={`${url}/addProduct`}
+              style={{ width: '100%' }}
+            >
               <ListItem button>
                 <ListItemText primary="Add A Product" />
               </ListItem>
-            </Link>
-            <Link to={`${url}/makeAdmin`} style={{ width: '100%' }}>
+            </NavLink>
+            <NavLink
+              className={link => (link.isActive ? 'active' : '')}
+              to={`${url}/makeAdmin`}
+              style={{ width: '100%' }}
+            >
               <ListItem button>
                 <ListItemText primary="Make Admin" />
               </ListItem>
-            </Link>
-            <Link to={`${url}/manageProducts`} style={{ width: '100%' }}>
+            </NavLink>
+            <NavLink
+              className={link => (link.isActive ? 'active' : '')}
+              to={`${url}/manageProducts`}
+              style={{ width: '100%' }}
+            >
               <ListItem button>
                 <ListItemText primary="Manage Products" />
               </ListItem>
-            </Link>
+            </NavLink>
           </>
         ) : (
           <>
-            <Link to={`${url}/pay`} style={{ width: '100%' }}>
+            <NavLink
+              className={link => (link.isActive ? 'active' : '')}
+              to={`${url}/pay`}
+              style={{ width: '100%' }}
+            >
               <ListItem button>
                 <ListItemText primary="Pay" />
               </ListItem>
-            </Link>
-            <Link to={`${url}/myOrders`} style={{ width: '100%' }}>
+            </NavLink>
+            <NavLink
+              className={link => (link.isActive ? 'active' : '')}
+              to={`${url}/myOrders`}
+              style={{ width: '100%' }}
+            >
               <ListItem button>
                 <ListItemText primary="My Orders" />
               </ListItem>
-            </Link>
-            <Link to={`${url}/review`} style={{ width: '100%' }}>
+            </NavLink>
+            <NavLink
+              className={link => (link.isActive ? 'active' : '')}
+              to={`${url}/review`}
+              style={{ width: '100%' }}
+            >
               <ListItem button>
                 <ListItemText primary="Review" />
               </ListItem>
-            </Link>
+            </NavLink>
           </>
         )}
         <ListItem button onClick={logOut}>
