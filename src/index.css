@@ -4,8 +4,8 @@
 /* variables */
 :root {
   /* colors */
-  --clr-primary: #42f56c;
-  --bg-light: #cffcd9;
+  --clr-primary: hsl(345, 77%, 57%);
+  --bg-light: hsl(345, 77%, 90%);
   --text-dark: #474747;
 }
 /* resets */
@@ -24,4 +24,15 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+}
+
+/* components */
+.form {
+  width: min(100%, 800px);
+  margin: 0 auto;
+  padding: 40px 20px;
+  margin: 10px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+  box-sizing: border-box;
+  border-radius: 10px;
 }

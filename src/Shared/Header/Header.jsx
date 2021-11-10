@@ -37,8 +37,17 @@ const Header = () => {
             <img src={logo} alt="Scrambled" />
             <h2>Scrambled</h2>
           </span>
-          <NavLink to="/" className={link => (link.isActive ? 'active' : '')}>
+          <NavLink
+            to="/home"
+            className={link => (link.isActive ? 'active' : '')}
+          >
             <span className="nav-link">Home</span>
+          </NavLink>
+          <NavLink
+            to="/products"
+            className={link => (link.isActive ? 'active' : '')}
+          >
+            <span className="nav-link">Products</span>
           </NavLink>
           {user.email ? (
             <>

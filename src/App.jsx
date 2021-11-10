@@ -4,6 +4,7 @@ import AuthProvider from './Contexts/AuthProvider'
 import Account from './Pages/Account/Account'
 import Dashborad from './Pages/Dashboard/Dashborad'
 import Home from './Pages/Home/Home'
+import Products from './Pages/Products/Products'
 
 function App() {
   return (
@@ -14,8 +15,14 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
             <Route path="/account">
               <Account />
+            </Route>
+            <Route path="/products">
+              <Products />
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashborad />
