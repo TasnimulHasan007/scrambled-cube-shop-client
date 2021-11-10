@@ -44,7 +44,7 @@ const Header = () => {
             <>
               <IconButton onClick={handleMenuClick} size="small" sx={{ ml: 2 }}>
                 <Avatar sx={{ width: 32, height: 32 }}>
-                  {user.displayName.slice(0, 1)}
+                  {user?.displayName?.slice(0, 1)}
                 </Avatar>
               </IconButton>
               <Menu
@@ -85,13 +85,13 @@ const Header = () => {
                     transform: 'translateX(-50%)',
                   }}
                 >
-                  {user.displayName.slice(0, 1)}
+                  {user?.displayName?.slice(0, 1)}
                 </Avatar>
                 <Typography variant="body1" sx={{ px: 2 }}>
-                  {user.displayName}
+                  {user?.displayName}
                 </Typography>
                 <Typography variant="body2" sx={{ px: 2 }}>
-                  {user.email}
+                  {user?.email}
                 </Typography>
                 <Divider sx={{ mt: 2 }} />
                 <MenuItem onClick={() => history.push('/dashboard')}>

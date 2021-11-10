@@ -23,12 +23,13 @@ import ManageOrders from '../../components/ManageOrders/ManageOrders'
 import AddProduct from '../../components/AddProduct/AddProduct'
 import MakeAdmin from '../../components/MakeAdmin/MakeAdmin'
 import ManageProducts from '../../components/ManageProducts/ManageProducts'
+import AdminRoute from '../../components/AdminRoute/AdminRoute'
 
 const drawerWidth = 240
 
 const Dashborad = props => {
   // authentication stuff
-  const { user, logOut } = useAuth()
+  const { user, logOut, admin } = useAuth()
   // router
   const { path, url } = useRouteMatch()
 
@@ -61,41 +62,48 @@ const Dashborad = props => {
       </Typography>
       <Divider sx={{ mt: 2 }} />
       <List>
-        <Link to={`${url}/pay`} style={{ width: '100%' }}>
-          <ListItem button>
-            <ListItemText primary="Pay" />
-          </ListItem>
-        </Link>
-        <Link to={`${url}/myOrders`} style={{ width: '100%' }}>
-          <ListItem button>
-            <ListItemText primary="My Orders" />
-          </ListItem>
-        </Link>
-        <Link to={`${url}/review`} style={{ width: '100%' }}>
-          <ListItem button>
-            <ListItemText primary="Review" />
-          </ListItem>
-        </Link>
-        <Link to={`${url}/manageOrders`} style={{ width: '100%' }}>
-          <ListItem button>
-            <ListItemText primary="Manage All Orders" />
-          </ListItem>
-        </Link>
-        <Link to={`${url}/addProduct`} style={{ width: '100%' }}>
-          <ListItem button>
-            <ListItemText primary="Add A Product" />
-          </ListItem>
-        </Link>
-        <Link to={`${url}/makeAdmin`} style={{ width: '100%' }}>
-          <ListItem button>
-            <ListItemText primary="Make Admin" />
-          </ListItem>
-        </Link>
-        <Link to={`${url}/manageProducts`} style={{ width: '100%' }}>
-          <ListItem button>
-            <ListItemText primary="Manage Products" />
-          </ListItem>
-        </Link>
+        {admin ? (
+          <>
+            <Link to={`${url}/manageOrders`} style={{ width: '100%' }}>
+              <ListItem button>
+                <ListItemText primary="Manage All Orders" />
+              </ListItem>
+            </Link>
+            <Link to={`${url}/addProduct`} style={{ width: '100%' }}>
+              <ListItem button>
+                <ListItemText primary="Add A Product" />
+              </ListItem>
+            </Link>
+            <Link to={`${url}/makeAdmin`} style={{ width: '100%' }}>
+              <ListItem button>
+                <ListItemText primary="Make Admin" />
+              </ListItem>
+            </Link>
+            <Link to={`${url}/manageProducts`} style={{ width: '100%' }}>
+              <ListItem button>
+                <ListItemText primary="Manage Products" />
+              </ListItem>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to={`${url}/pay`} style={{ width: '100%' }}>
+              <ListItem button>
+                <ListItemText primary="Pay" />
+              </ListItem>
+            </Link>
+            <Link to={`${url}/myOrders`} style={{ width: '100%' }}>
+              <ListItem button>
+                <ListItemText primary="My Orders" />
+              </ListItem>
+            </Link>
+            <Link to={`${url}/review`} style={{ width: '100%' }}>
+              <ListItem button>
+                <ListItemText primary="Review" />
+              </ListItem>
+            </Link>
+          </>
+        )}
         <ListItem button onClick={logOut}>
           <ListItemText primary="Log Out" />
         </ListItem>
@@ -199,18 +207,18 @@ const Dashborad = props => {
             <Route path={`${path}/review`}>
               <Review />
             </Route>
-            <Route path={`${path}/manageOrders`}>
+            <AdminRoute path={`${path}/manageOrders`}>
               <ManageOrders />
-            </Route>
-            <Route path={`${path}/addProduct`}>
+            </AdminRoute>
+            <AdminRoute path={`${path}/addProduct`}>
               <AddProduct />
-            </Route>
-            <Route path={`${path}/makeAdmin`}>
+            </AdminRoute>
+            <AdminRoute path={`${path}/makeAdmin`}>
               <MakeAdmin />
-            </Route>
-            <Route path={`${path}/manageProducts`}>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manageProducts`}>
               <ManageProducts />
-            </Route>
+            </AdminRoute>
           </Switch>
         </Container>
       </Box>

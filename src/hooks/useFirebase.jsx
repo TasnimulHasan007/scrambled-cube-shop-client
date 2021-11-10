@@ -32,7 +32,7 @@ const useFirebase = () => {
         const newUser = { email, displayName: name }
         setUser(newUser)
         // save user to the database
-        /*  saveUser(email, name, 'POST') */
+        saveUser(email, name, 'POST')
         // send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -93,7 +93,7 @@ const useFirebase = () => {
   // save user to database
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName }
-    fetch('https://stark-caverns-04377.herokuapp.com/users', {
+    fetch('http://localhost:5000/users', {
       method: method,
       headers: {
         'content-type': 'application/json',
@@ -101,9 +101,17 @@ const useFirebase = () => {
       body: JSON.stringify(user),
     }).then()
   }
+  // check if user is an admin
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then(res => res.json())
+      .then(data => setAdmin(data.admin))
+  }, [user.email])
 
   return {
     user,
+    admin,
+    token,
     isLoading,
     authError,
     registerUser,
