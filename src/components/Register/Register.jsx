@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth'
 import { useState } from 'react'
 import Snack from '../Snack/Snack'
 
-const Register = ({ url, location, history }) => {
+const Register = ({ url, destination, history }) => {
   // states
   const [openRegisterSnackbar, setOpenRegisterSnackbar] = useState(false)
   // authentication stuff
@@ -15,7 +15,7 @@ const Register = ({ url, location, history }) => {
   // handle register
   const handleRegister = data => {
     const { displayName, email, password } = data
-    registerUser(email, password, displayName, location, history)
+    registerUser(email, password, displayName, destination, history)
     reset()
     setOpenRegisterSnackbar(true)
   }

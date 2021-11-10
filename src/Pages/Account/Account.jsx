@@ -1,4 +1,5 @@
 import { Container } from '@mui/material'
+import { useEffect, useState } from 'react'
 import {
   useRouteMatch,
   Switch,
@@ -13,9 +14,15 @@ import Header from '../../Shared/Header/Header'
 import './Account.css'
 
 const Account = () => {
+  // states
+  const [destination, setDestination] = useState('/')
   // history & location
   const history = useHistory()
   const location = useLocation()
+  useEffect(() => {
+    const from = location.state?.from || '/'
+    setDestination(from)
+  }, [])
   // useRouteMatch for nested routes
   const { path, url } = useRouteMatch()
   return (
@@ -26,13 +33,13 @@ const Account = () => {
         <div className="form-container">
           <Switch>
             <Route exact path={path}>
-              <Login url={url} history={history} location={location} />
+              <Login url={url} history={history} destination={destination} />
             </Route>
             <Route path={`${path}/login`}>
-              <Login url={url} history={history} location={location} />
+              <Login url={url} history={history} destination={destination} />
             </Route>
             <Route path={`${path}/register`}>
-              <Register url={url} history={history} location={location} />
+              <Register url={url} history={history} destination={destination} />
             </Route>
           </Switch>
         </div>

@@ -8,9 +8,10 @@ import {
   Typography,
   Grid,
 } from '@mui/material'
+import { Link } from 'react-router-dom'
 
-const Product = ({ product: { name, description, price, img } }) => {
-  console.log(name, description, price, img)
+const Product = ({ product }) => {
+  const { name, description, price, img } = product
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card>
@@ -20,13 +21,6 @@ const Product = ({ product: { name, description, price, img } }) => {
             <Typography gutterBottom variant="h6" component="div">
               {name}
             </Typography>
-            {/* <Typography
-              variant="body2"
-              color="text.secondary"
-              dangerouslySetInnerHTML={{
-                __html: description.replace(/\\n/g, '<br /></br />'),
-              }}
-            ></Typography> */}
             <Typography
               variant="body2"
               color="text.secondary"
@@ -34,17 +28,15 @@ const Product = ({ product: { name, description, price, img } }) => {
             >
               {description.slice(0, 100)}...
             </Typography>
-            <Typography
-              variant="body1"
-              sx={{ pt: 2, color: 'var(--clr-primary)' }}
-            >
-              ৳{price}
-            </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button size="small">Learn More</Button>
-          <Button size="small">Add To Cart</Button>
+        <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="body1" sx={{ color: 'var(--clr-primary)' }}>
+            ৳{price}
+          </Typography>
+          <Link to={`/purchase/${product._id}`}>
+            <Button size="small">Learn More</Button>
+          </Link>
         </CardActions>
       </Card>
     </Grid>

@@ -4,8 +4,8 @@
 /* variables */
 :root {
   /* colors */
-  --clr-primary: hsl(345, 77%, 57%);
-  --bg-light: hsl(345, 77%, 90%);
+  --clr-primary: hsl(35, 85%, 50%);
+  --bg-light: hsl(35, 85%, 90%);
   --text-dark: #474747;
 }
 /* resets */
@@ -24,6 +24,10 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+}
+
+img {
+  max-width: 100%;
 }
 
 /* components */

@@ -139,7 +139,16 @@ const Dashborad = props => {
             <Typography variant="h6" noWrap component="div" sx={{ mr: 'auto' }}>
               Dashboard
             </Typography>
-            <NavLink to="/" className={link => (link.isActive ? 'active' : '')}>
+            <NavLink
+              to="/products"
+              className={link => (link.isActive ? 'active' : '')}
+            >
+              <span className="nav-link">Products</span>
+            </NavLink>
+            <NavLink
+              to="/home"
+              className={link => (link.isActive ? 'active' : '')}
+            >
               <span className="nav-link">Home</span>
             </NavLink>
           </Toolbar>

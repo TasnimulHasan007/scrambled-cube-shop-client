@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 import Snack from '../Snack/Snack'
 
-const Login = ({ url, location, history }) => {
+const Login = ({ url, destination, history }) => {
   // states
   const [openLoginSnackbar, setOpenLoginSnackbar] = useState(false)
   // authentication stuff
@@ -15,7 +15,7 @@ const Login = ({ url, location, history }) => {
   // handle register
   const handleLogin = data => {
     const { email, password } = data
-    loginUser(email, password, location, history)
+    loginUser(email, password, destination, history)
     setOpenLoginSnackbar(true)
     reset()
   }
