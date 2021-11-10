@@ -1,4 +1,5 @@
-#header {
+#header,
+#dashboard .header {
   background-color: var(--bg-light);
   color: var(--text-dark);
   box-shadow: none;
@@ -16,7 +17,8 @@
   margin-right: 14px;
 }
 
-#header .nav-link {
+#header .nav-link,
+#dashboard .header .nav-link {
   color: var(--text-dark);
   font-size: 14px;
   line-height: 9px;
@@ -24,6 +26,7 @@
   margin-left: 40px;
 }
 
-#header .active {
+#header .active,
+#dashboard .header .active {
   font-weight: 600;
 }

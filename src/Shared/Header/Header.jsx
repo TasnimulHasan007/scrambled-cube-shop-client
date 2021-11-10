@@ -5,18 +5,19 @@ import {
   Container,
   Divider,
   IconButton,
-  ListItemIcon,
   Menu,
   MenuItem,
   Toolbar,
   Typography,
 } from '@mui/material'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 import './Header.css'
 import useAuth from '../../hooks/useAuth'
 
 const Header = () => {
+  // history
+  const history = useHistory()
   // authentication stuff
   const { user, logOut } = useAuth()
   // profile dropdown
@@ -93,18 +94,10 @@ const Header = () => {
                   {user.email}
                 </Typography>
                 <Divider sx={{ mt: 2 }} />
-                <MenuItem>
-                  <ListItemIcon>
-                    {/* <Settings fontSize="small" /> */}
-                  </ListItemIcon>
+                <MenuItem onClick={() => history.push('/dashboard')}>
                   Dashboard
                 </MenuItem>
-                <MenuItem onClick={logOut}>
-                  <ListItemIcon>
-                    {/* <Logout fontSize="small" /> */}
-                  </ListItemIcon>
-                  Logout
-                </MenuItem>
+                <MenuItem onClick={logOut}>Logout</MenuItem>
               </Menu>
             </>
           ) : (

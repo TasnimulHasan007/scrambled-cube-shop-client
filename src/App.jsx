@@ -1,14 +1,28 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import AuthProvider from './Contexts/AuthProvider'
 import Account from './Pages/Account/Account'
+import Dashborad from './Pages/Dashboard/Dashborad'
 import Home from './Pages/Home/Home'
 
 function App() {
   return (
     <>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/account" component={Account} />
-      </Switch>
+      <AuthProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/account">
+              <Account />
+            </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashborad />
+            </PrivateRoute>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </>
   )
 }
