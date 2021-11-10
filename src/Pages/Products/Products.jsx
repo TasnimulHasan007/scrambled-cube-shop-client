@@ -1,5 +1,6 @@
-import { CircularProgress, Container, Grid, Typography } from '@mui/material'
+import { CircularProgress, Container, Grid } from '@mui/material'
 import { useEffect, useState } from 'react'
+import PageBanner from '../../components/PageBanner/PageBanner'
 import Product from '../../components/Product/Product'
 import Header from '../../Shared/Header/Header'
 
@@ -16,10 +17,8 @@ const Products = () => {
   return (
     <>
       <Header />
+      <PageBanner pageName="Our Products" />
       <Container maxWidth="xl" sx={{ py: 4 }}>
-        <Typography variant="h4" sx={{ textAlign: 'center', mb: 2 }}>
-          Our Products
-        </Typography>
         <Grid container spacing={3}>
           {products.length ? (
             products.map(product => (

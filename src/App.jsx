@@ -1,4 +1,5 @@
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
+import MyOrders from './components/MyOrders/MyOrders'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import AuthProvider from './Contexts/AuthProvider'
 import Account from './Pages/Account/Account'
@@ -25,6 +26,9 @@ function App() {
             <Route path="/products">
               <Products />
             </Route>
+            <PrivateRoute path="/myOrders">
+              <MyOrders />
+            </PrivateRoute>
             <PrivateRoute path="/purchase/:productId">
               <Purchase />
             </PrivateRoute>

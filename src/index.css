@@ -5,7 +5,7 @@
 :root {
   /* colors */
   --clr-primary: hsl(35, 85%, 50%);
-  --bg-light: hsl(35, 85%, 90%);
+  --bg-light: hsl(35, 85%, 95%);
   --text-dark: #474747;
 }
 /* resets */
@@ -18,12 +18,17 @@
 
 body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  color: var(--text-dark);
 }
 
 a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+}
+
+ul {
+  list-style: none;
 }
 
 img {

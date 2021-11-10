@@ -1,5 +1,5 @@
 #page_banner {
   padding-block: 80px;
-  background-color: #fafafa;
+  background-color: var(--bg-light);
   text-align: center;
 }

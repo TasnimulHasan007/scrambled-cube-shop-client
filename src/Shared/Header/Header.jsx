@@ -51,6 +51,12 @@ const Header = () => {
           </NavLink>
           {user.email ? (
             <>
+              <NavLink
+                to="/myOrders"
+                className={link => (link.isActive ? 'active' : '')}
+              >
+                <span className="nav-link">My Orders</span>
+              </NavLink>
               <IconButton onClick={handleMenuClick} size="small" sx={{ ml: 2 }}>
                 <Avatar sx={{ width: 32, height: 32 }}>
                   {user?.displayName?.slice(0, 1)}
