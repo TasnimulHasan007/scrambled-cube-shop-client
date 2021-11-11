@@ -14,7 +14,7 @@ const Product = ({ product }) => {
   const { name, description, price, img } = product
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card>
+      <Card sx={{ height: '100%' }}>
         <Link to={`/purchase/${product._id}`}>
           <CardActionArea>
             <CardMedia component="img" height="240" image={img} />
@@ -32,7 +32,7 @@ const Product = ({ product }) => {
                 color="text.secondary"
                 style={{ hyphens: 'auto' }}
               >
-                {description.slice(0, 120)}...
+                {description.slice(0, 115)}...
               </Typography>
             </CardContent>
           </CardActionArea>

@@ -1,0 +1,12 @@
+.featured {
+  position: relative;
+  margin-block: 56px;
+  min-height: 400px;
+}
+
+.featured h4 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 36px;
+}

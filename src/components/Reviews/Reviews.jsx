@@ -7,6 +7,7 @@ import 'swiper/components/navigation/navigation.min.css'
 import 'swiper/components/pagination/pagination.min.css'
 import './Reviews.css'
 import { Rating } from '@mui/material'
+import Loader from '../../Shared/Loader/Loader'
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([])
@@ -20,6 +21,7 @@ const Reviews = () => {
     <div id="reviews">
       <div className="testimonials">
         <h1>What People Say About Us</h1>
+        {reviews.length === 0 && <Loader />}
         <div className="swiper-container">
           <Swiper
             centeredSlides={true}
