@@ -1,3 +1,4 @@
+import Contact from '../../components/Contact/Contact'
 import Featured from '../../components/Featured/Featured'
 import MainBanner from '../../components/MainBanner/MainBanner'
 import Reviews from '../../components/Reviews/Reviews'
@@ -10,6 +11,7 @@ const Home = () => {
       <MainBanner />
       <Featured />
       <Reviews />
+      <Contact />
     </>
   )
 }

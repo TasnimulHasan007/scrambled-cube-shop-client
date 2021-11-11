@@ -1,0 +1,46 @@
+.contact {
+  padding-block: 80px;
+  color: var(--text-dark);
+}
+
+.contact > h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact > p {
+  font-size: 20px;
+  line-height: 34px;
+  color: var(--clr-primary);
+  text-align: center;
+}
+
+.contact .showcase {
+  text-align: center;
+  padding-block: 25px;
+}
+
+.contact .showcase i {
+  color: var(--clr-primary);
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+
+.contact .showcase span {
+  display: block;
+  font-weight: 500;
+  opacity: 0.7;
+  line-height: 36px;
+}
+
+.contact .showcase p {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+}
+
+.contact button,
+.contact button:hover {
+  box-shadow: none;
+}
