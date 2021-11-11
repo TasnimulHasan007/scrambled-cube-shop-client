@@ -10,6 +10,7 @@ import {
 import Login from '../../components/Login/Login'
 import PageBanner from '../../components/PageBanner/PageBanner'
 import Register from '../../components/Register/Register'
+import Footer from '../../Shared/Footer/Footer'
 import Header from '../../Shared/Header/Header'
 import './Account.css'
 
@@ -44,6 +45,7 @@ const Account = () => {
           </Switch>
         </div>
       </Container>
+      <Footer />
     </div>
   )
 }

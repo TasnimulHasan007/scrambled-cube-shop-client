@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from 'react'
 import PageBanner from '../../components/PageBanner/PageBanner'
 import Product from '../../components/Product/Product'
+import Footer from '../../Shared/Footer/Footer'
 import Header from '../../Shared/Header/Header'
 
 const Products = () => {
@@ -89,6 +90,7 @@ const Products = () => {
           />
         )}
       </Container>
+      <Footer />
     </>
   )
 }

@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import Header from '../../Shared/Header/Header'
 import OrderModal from '../../components/OrderModal/OrderModal'
+import Footer from '../../Shared/Footer/Footer'
 
 const Purchase = () => {
   const { productId } = useParams()
@@ -35,8 +36,8 @@ const Purchase = () => {
         quantity={quantity}
       />
       <Header />
-      <Container maxWidth="xl" sx={{ py: 4 }}>
-        <Grid container spacing={3} sx={{ alignItems: 'center' }}>
+      <Container maxWidth="xl" sx={{ py: 6 }}>
+        <Grid container spacing={4} sx={{ alignItems: 'center' }}>
           {product.name ? (
             <>
               <Grid item xs={12} md={6}>
@@ -109,6 +110,7 @@ const Purchase = () => {
           )}
         </Grid>
       </Container>
+      <Footer />
     </>
   )
 }
