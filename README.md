@@ -10,7 +10,7 @@ Regardless of whether you are a competitive speedsolver or puzzle enthusiast, Sc
 
 - Important Links:
   <br>
-  [Live Site](http://localhost:3000)
+  [Live Site](https://scrambled-cube-shop.web.app/)
   <br>
   [Server Git repo](https://github.com/programming-hero-web-course-4/niche-website-server-side-TasnimulHasan007)
 
