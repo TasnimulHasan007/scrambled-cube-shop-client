@@ -30,9 +30,9 @@ const Product = ({ product }) => {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ hyphens: 'auto' }}
+                style={{ hyphens: 'auto' }}
               >
-                {description.slice(0, 100)}...
+                {description.slice(0, 120)}...
               </Typography>
             </CardContent>
           </CardActionArea>

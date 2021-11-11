@@ -18,7 +18,7 @@ import useAuth from '../../hooks/useAuth'
 import { NavLink, useRouteMatch, Switch, Route } from 'react-router-dom'
 import Pay from '../../components/Pay/Pay'
 import MyOrders from '../../components/MyOrders/MyOrders'
-import Review from '../../components/Review/Review'
+import AddReview from '../../components/AddReview/AddReview'
 import ManageOrders from '../../components/ManageOrders/ManageOrders'
 import AddProduct from '../../components/AddProduct/AddProduct'
 import MakeAdmin from '../../components/MakeAdmin/MakeAdmin'
@@ -115,11 +115,11 @@ const Dashborad = props => {
 
             <NavLink
               className={link => (link.isActive ? 'active' : '')}
-              to={`${url}/review`}
+              to={`${url}/addReview`}
               style={{ width: '100%' }}
             >
               <ListItem button>
-                <ListItemText primary="Review" />
+                <ListItemText primary="Add Review" />
               </ListItem>
             </NavLink>
           </>
@@ -242,8 +242,8 @@ const Dashborad = props => {
             <Route path={`${path}/myOrders`}>
               <MyOrders />
             </Route>
-            <Route path={`${path}/review`}>
-              <Review />
+            <Route path={`${path}/addReview`}>
+              <AddReview />
             </Route>
             <AdminRoute path={`${path}/manageOrders`}>
               <ManageOrders />

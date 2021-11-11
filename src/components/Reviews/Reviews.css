@@ -1,0 +1,73 @@
+#reviews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 700px;
+  background: var(--bg-light);
+}
+
+#reviews .testimonials {
+  position: relative;
+  max-width: 100%;
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent 60%, rgba(0, 0, 0, 0.2));
+}
+
+#reviews .testimonials h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  transform: translateY(-80px);
+  color: var(--text-dark);
+}
+
+#reviews .swiper-slide {
+  margin-inline: 20px;
+  background-position: center;
+  background-size: cover;
+  max-width: 350px;
+  min-height: 290px;
+  background: #fff;
+}
+
+#reviews .testimonials .card {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--clr-primary);
+  padding: 60px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#reviews .testimonials .card .layer {
+  position: absolute;
+  top: calc(100% - 5px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text-dark);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+#reviews .testimonials .card:hover .layer {
+  top: 0;
+}
+
+#reviews .testimonials .card .content {
+  position: relative;
+  z-index: 2;
+}
+
+#reviews .testimonials .card .content p {
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+#reviews .testimonials .card .content h2 {
+  font-size: 18px;
+  color: #fff;
+  margin-top: 32px;
+}
