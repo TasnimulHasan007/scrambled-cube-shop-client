@@ -67,12 +67,11 @@ const ManageOrders = () => {
             if (data.deletedCount) {
               setOrders(orders.filter(order => order._id !== id))
               setSeverity('success')
-              setMethod('delete')
-              setSnackOpen(true)
             } else {
               setSeverity('error')
-              setSnackOpen(true)
             }
+            setSnackOpen(true)
+            setMethod('delete')
           })
       })
       .catch(() => {})
@@ -115,8 +114,8 @@ const ManageOrders = () => {
 
   // table data
   const columns = [
-    { id: 'productName', label: 'Name', minWidth: 150 },
-    { id: 'userEmail', label: 'email', minWidth: 120 },
+    { id: 'productName', label: 'Product Name', minWidth: 150 },
+    { id: 'userEmail', label: 'Email', minWidth: 120 },
     {
       id: '_id',
       label: 'Order ID',
