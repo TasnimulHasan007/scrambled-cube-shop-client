@@ -24,6 +24,7 @@ const Reviews = () => {
         {reviews.length === 0 && <Loader />}
         <div className="swiper-container">
           <Swiper
+            grabCursor={true}
             centeredSlides={true}
             slidesPerView={'auto'}
             className="swiper-wrapper"
