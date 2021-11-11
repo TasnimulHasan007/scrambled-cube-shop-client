@@ -28,11 +28,14 @@ const MyOrders = () => {
   // load orders
   useEffect(() => {
     if (user.email && token) {
-      fetch(`http://localhost:5000/orders/${user.email}`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
+      fetch(
+        `https://vast-everglades-63169.herokuapp.com/orders/${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
         .then(res => res.json())
         .then(data => {
           setOrders(data)
@@ -49,7 +52,7 @@ const MyOrders = () => {
       description: 'This will cancel your order',
     })
       .then(() => {
-        fetch(`http://localhost:5000/orders/${orderId}`, {
+        fetch(`https://vast-everglades-63169.herokuapp.com/orders/${orderId}`, {
           method: 'DELETE',
           headers: {
             authorization: `Bearer ${token}`,

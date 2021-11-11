@@ -28,7 +28,7 @@ const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm()
   // handle make admin
   const makeAdmin = user => {
-    fetch('http://localhost:5000/users/admin', {
+    fetch('https://vast-everglades-63169.herokuapp.com/users/admin', {
       method: 'PUT',
       headers: {
         authorization: `Bearer ${token}`,

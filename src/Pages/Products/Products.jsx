@@ -21,7 +21,9 @@ const Products = () => {
   const size = 8
   // load products from server
   useEffect(() => {
-    fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
+    fetch(
+      `https://vast-everglades-63169.herokuapp.com/products?page=${page}&&size=${size}`
+    )
       .then(res => res.json())
       .then(data => {
         setProducts(data.products)

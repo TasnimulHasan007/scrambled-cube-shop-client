@@ -35,7 +35,7 @@ const ManageOrders = () => {
   }
   // load orders
   useEffect(() => {
-    fetch('http://localhost:5000/orders', {
+    fetch('https://vast-everglades-63169.herokuapp.com/orders', {
       headers: {
         authorization: `Bearer ${token}`,
       },
@@ -56,7 +56,7 @@ const ManageOrders = () => {
       description: 'This will delete the order',
     })
       .then(() => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://vast-everglades-63169.herokuapp.com/orders/${id}`, {
           method: 'DELETE',
           headers: {
             authorization: `Bearer ${token}`,
@@ -84,14 +84,17 @@ const ManageOrders = () => {
       description: 'This will approve the order',
     })
       .then(() => {
-        fetch(`http://localhost:5000/orders/${updatedOrder._id}`, {
-          method: 'PUT',
-          headers: {
-            authorization: `Bearer ${token}`,
-            'content-type': 'application/json',
-          },
-          body: JSON.stringify(updatedOrder),
-        })
+        fetch(
+          `https://vast-everglades-63169.herokuapp.com/orders/${updatedOrder._id}`,
+          {
+            method: 'PUT',
+            headers: {
+              authorization: `Bearer ${token}`,
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(updatedOrder),
+          }
+        )
           .then(res => res.json())
           .then(data => {
             if (data.modifiedCount) {

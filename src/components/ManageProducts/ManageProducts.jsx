@@ -30,7 +30,7 @@ const ManageProducts = () => {
 
   // load products
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('https://vast-everglades-63169.herokuapp.com/products')
       .then(res => res.json())
       .then(data => setProducts(data.products))
   }, [])
@@ -42,7 +42,7 @@ const ManageProducts = () => {
       description: 'This will delete the order',
     })
       .then(() => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://vast-everglades-63169.herokuapp.com/products/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

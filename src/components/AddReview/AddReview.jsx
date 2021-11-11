@@ -38,7 +38,7 @@ const AddReview = () => {
     console.log(review)
 
     // post review to server
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://vast-everglades-63169.herokuapp.com/reviews', {
       method: 'POST',
       headers: {
         authorization: `Bearer ${token}`,
@@ -87,7 +87,15 @@ const AddReview = () => {
           required
           minRows={5}
         />
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            background:
+              'linear-gradient(to left, var(--clr-primary), var(--clr-primary))',
+          }}
+          color="primary"
+        >
           Post Review
         </Button>
       </form>

@@ -10,7 +10,7 @@ const Featured = () => {
   const [products, setProducts] = useState([])
   // load products from server
   useEffect(() => {
-    fetch(`http://localhost:5000/products?page=0&&size=6`)
+    fetch(`https://vast-everglades-63169.herokuapp.com/products?page=0&&size=6`)
       .then(res => res.json())
       .then(data => {
         setProducts(data.products)

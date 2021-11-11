@@ -29,7 +29,7 @@ const AddProduct = () => {
   // handle add product
   const addProduct = product => {
     // post product to server
-    fetch('http://localhost:5000/products', {
+    fetch('https://vast-everglades-63169.herokuapp.com/products', {
       method: 'POST',
       headers: {
         authorization: `Bearer ${token}`,
