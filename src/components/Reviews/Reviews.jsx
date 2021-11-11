@@ -51,6 +51,7 @@ const Reviews = () => {
                         sx={{ color: '#fff' }}
                         name="read-only"
                         value={review?.rating}
+                        precision={0.5}
                         readOnly
                       />
                     </div>

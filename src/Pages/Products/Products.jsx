@@ -59,7 +59,11 @@ const Products = () => {
             sx={{ width: 'min(450px, 100%)' }}
           />
         </Box>
-        <Grid container spacing={3} sx={{ my: 4, minHeight: '400px' }}>
+        <Grid
+          container
+          spacing={3}
+          sx={{ my: 4, minHeight: '400px', position: 'relative' }}
+        >
           {displayProducts.length ? (
             displayProducts.map(product => (
               <Product key={product._id} product={product} />

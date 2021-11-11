@@ -1,8 +1,9 @@
-import { Container, Typography, Grid } from '@mui/material'
+import { Container, Typography, Grid, Stack, Button } from '@mui/material'
 import { useState, useEffect } from 'react'
 import Product from '../Product/Product'
 import Loader from '../../Shared/Loader/Loader'
 import './Featured.css'
+import { Link } from 'react-router-dom'
 
 const Featured = () => {
   // states
@@ -18,9 +19,29 @@ const Featured = () => {
   return (
     <div className="featured">
       <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ fontWeight: '700' }}>
-          Recommended For You
-        </Typography>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ mb: 6 }}
+        >
+          <Typography variant="h4" sx={{ fontWeight: '700' }}>
+            Recommended For You
+          </Typography>
+          <Link to="/products">
+            <Button
+              variant="contained"
+              color="inherit"
+              sx={{
+                color: '#fff',
+                background:
+                  'linear-gradient(to right, var(--clr-primary), var(--clr-primary))',
+              }}
+            >
+              View All
+            </Button>
+          </Link>
+        </Stack>
         <Grid container spacing={3} columns={{ xs: 12, sm: 12, md: 12, lg: 9 }}>
           {products.length ? (
             products.map(product => (

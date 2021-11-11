@@ -6,33 +6,36 @@ import Dashborad from './Pages/Dashboard/Dashborad'
 import Home from './Pages/Home/Home'
 import Products from './Pages/Products/Products'
 import Purchase from './Pages/Purchase/Purchase'
+import { ConfirmProvider } from 'material-ui-confirm'
 
 function App() {
   return (
     <>
       <AuthProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route path="/account">
-              <Account />
-            </Route>
-            <Route path="/products">
-              <Products />
-            </Route>
-            <PrivateRoute path="/purchase/:productId">
-              <Purchase />
-            </PrivateRoute>
-            <PrivateRoute path="/dashboard">
-              <Dashborad />
-            </PrivateRoute>
-          </Switch>
-        </Router>
+        <ConfirmProvider>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              <Route path="/account">
+                <Account />
+              </Route>
+              <Route path="/products">
+                <Products />
+              </Route>
+              <PrivateRoute path="/purchase/:productId">
+                <Purchase />
+              </PrivateRoute>
+              <PrivateRoute path="/dashboard">
+                <Dashborad />
+              </PrivateRoute>
+            </Switch>
+          </Router>
+        </ConfirmProvider>
       </AuthProvider>
     </>
   )
