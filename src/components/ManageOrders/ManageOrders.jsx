@@ -78,7 +78,7 @@ const ManageOrders = () => {
   }
   // handle update order status
   const handleUpdateStatus = updatedOrder => {
-    updatedOrder.status = 'Approved'
+    updatedOrder.status = 'Shipped'
     confirm({
       title: 'Are you sure?',
       description: 'This will approve the order',

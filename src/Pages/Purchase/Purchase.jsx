@@ -36,7 +36,7 @@ const Purchase = () => {
       />
       <Header />
       <Container maxWidth="xl" sx={{ py: 4 }}>
-        <Grid container sx={{ alignItems: 'center' }}>
+        <Grid container spacing={3} sx={{ alignItems: 'center' }}>
           {product.name ? (
             <>
               <Grid item xs={12} md={6}>
