@@ -14,11 +14,14 @@ import {
 import { useEffect, useState } from 'react'
 import useAuth from '../../hooks/useFirebase'
 import { useConfirm } from 'material-ui-confirm'
+import Snack from '../Snack/Snack'
 
 const MyOrders = () => {
   // states
   const [orders, setOrders] = useState([])
   const [loading, setLoading] = useState(true)
+  const [snackOpen, setSnackOpen] = useState(false)
+  const [severity, setSeverity] = useState('success')
   // auth stuff
   const { user, token } = useAuth()
   // load orders
@@ -45,7 +48,6 @@ const MyOrders = () => {
       description: 'This will cancel your order',
     })
       .then(() => {
-        console.log(orderId)
         fetch(`http://localhost:5000/orders/${orderId}`, {
           method: 'DELETE',
           headers: {
@@ -55,17 +57,39 @@ const MyOrders = () => {
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount) {
-              setOrders(orders.filter(order => order._id !== orderId))
+              if (data.deletedCount) {
+                setOrders(orders.filter(order => order._id !== orderId))
+                setSeverity('success')
+                setSnackOpen(true)
+              } else {
+                setSeverity('error')
+                setSnackOpen(true)
+              }
             }
           })
       })
 
       .catch(() => {})
   }
+  // handle snackbar close
+  const handleSnackClose = () => {
+    setSnackOpen(false)
+  }
 
   // return
   return (
     <>
+      <Snack
+        open={snackOpen}
+        duration={4000}
+        handleClose={handleSnackClose}
+        severity={severity}
+        message={
+          severity === 'success'
+            ? 'Order deleted successfully!'
+            : 'Failed to delete order!'
+        }
+      />
       {loading ? (
         <CircularProgress
           style={{

@@ -44,7 +44,7 @@ const OrderModal = ({
       productName: name,
       price,
       quantity,
-      status: 'pending',
+      status: 'Pending',
     }
     fetch('http://localhost:5000/orders', {
       method: 'POST',

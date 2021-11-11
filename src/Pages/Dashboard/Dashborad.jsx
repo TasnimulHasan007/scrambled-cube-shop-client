@@ -112,15 +112,7 @@ const Dashborad = props => {
                 <ListItemText primary="Pay" />
               </ListItem>
             </NavLink>
-            <NavLink
-              className={link => (link.isActive ? 'active' : '')}
-              to={`${url}/myOrders`}
-              style={{ width: '100%' }}
-            >
-              <ListItem button>
-                <ListItemText primary="My Orders" />
-              </ListItem>
-            </NavLink>
+
             <NavLink
               className={link => (link.isActive ? 'active' : '')}
               to={`${url}/review`}
@@ -132,6 +124,15 @@ const Dashborad = props => {
             </NavLink>
           </>
         )}
+        <NavLink
+          className={link => (link.isActive ? 'active' : '')}
+          to={`${url}/myOrders`}
+          style={{ width: '100%' }}
+        >
+          <ListItem button>
+            <ListItemText primary="My Orders" />
+          </ListItem>
+        </NavLink>
         <ListItem button onClick={logOut}>
           <ListItemText primary="Log Out" />
         </ListItem>
