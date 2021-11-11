@@ -9,6 +9,9 @@ import './Reviews.css'
 import { Rating } from '@mui/material'
 import Loader from '../../Shared/Loader/Loader'
 
+import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from 'swiper'
+SwiperCore.use([EffectCoverflow, Pagination, Autoplay])
+
 const Reviews = () => {
   const [reviews, setReviews] = useState([])
   // load reviews from database
@@ -24,9 +27,12 @@ const Reviews = () => {
         {reviews.length === 0 && <Loader />}
         <div className="swiper-container">
           <Swiper
+            effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
             slidesPerView={'auto'}
+            autoplay={true}
+            pagination={true}
             className="swiper-wrapper"
           >
             {reviews.map(review => (
@@ -45,7 +51,15 @@ const Reviews = () => {
                           fontSize: '40px',
                         }}
                       >
-                        {review?.userName?.slice(0, 1)}
+                        {review.photoURL ? (
+                          <img
+                            src={review.photoURL}
+                            alt=""
+                            style={{ objectFit: 'cover' }}
+                          />
+                        ) : (
+                          <>{review.userName.slice(0, 1)}</>
+                        )}
                       </Avatar>
                       <Rating
                         color="inherit"

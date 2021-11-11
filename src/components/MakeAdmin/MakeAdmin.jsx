@@ -1,10 +1,24 @@
-import { Button, TextField, Typography } from '@mui/material'
+import { Button, TextField } from '@mui/material'
+import { makeStyles } from '@mui/styles'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import useAuth from '../../hooks/useAuth'
 import Snack from '../Snack/Snack'
 
+const useStyles = makeStyles({
+  root: {
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'var(--clr-primary)',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: 'var(--clr-primary)',
+    },
+  },
+})
+
 const MakeAdmin = () => {
+  // styled
+  const classes = useStyles()
   // authentication stuff
   const { token } = useAuth()
   // states
@@ -40,10 +54,11 @@ const MakeAdmin = () => {
   }
   return (
     <div>
-      <Typography variant="h5">Add an Admin</Typography>
-      <form onSubmit={handleSubmit(makeAdmin)}>
+      <form onSubmit={handleSubmit(makeAdmin)} className="form">
+        <h2 className="form__title">Add an Admin</h2>
         <TextField
-          variant="standard"
+          className={classes.root}
+          sx={{ mb: 3, width: '100%' }}
           label="Email"
           type="email"
           placeholder="example@domain.com"
@@ -52,8 +67,14 @@ const MakeAdmin = () => {
           autoComplete="off"
         />
         <br />
-        <br />
-        <Button type="submit" variant="contained">
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            background:
+              'linear-gradient(to left, var(--clr-primary), var(--clr-primary))',
+          }}
+        >
           Make Admin
         </Button>
       </form>

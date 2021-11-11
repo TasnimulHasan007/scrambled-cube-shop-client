@@ -33,7 +33,7 @@ const AddReview = () => {
       ...data,
       rating,
       userName: user?.displayName,
-      photoURL: user?.photoURL,
+      photoURL: user?.photoURL || '',
     }
     console.log(review)
 
@@ -64,8 +64,8 @@ const AddReview = () => {
   }
   return (
     <div>
-      <Typography variant="h5">Add a review</Typography>
       <form onSubmit={handleSubmit(addReview)} className="form">
+        <h2 className="form__title">Add a review</h2>
         <Typography variant="h6" sx={{ fontWeight: '500', fontSize: '14px' }}>
           Rating
         </Typography>

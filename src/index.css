@@ -4,8 +4,8 @@
 /* variables */
 :root {
   /* colors */
-  --clr-primary: hsl(35, 85%, 50%);
-  --bg-light: hsl(35, 85%, 95%);
+  --clr-primary: #ec9213;
+  --bg-light: #fdf4e7;
   --text-dark: #474747;
 }
 
@@ -31,6 +31,11 @@
   padding: 0;
   line-height: 1;
   box-sizing: border-box;
+}
+
+*::selection {
+  background: var(--clr-primary);
+  color: #fff;
 }
 
 body {
@@ -62,4 +67,27 @@ img {
   box-shadow: 0 0 5px rgb(0 0 0 / 20%);
   box-sizing: border-box;
   border-radius: 10px;
+  position: relative;
+  min-height: 350px;
+}
+
+.form__title {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.empty {
+  color: var(--text-dark);
+  text-align: center;
+  width: 100%;
+  margin-block: 40px;
+}
+
+.empty h1 {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
 }

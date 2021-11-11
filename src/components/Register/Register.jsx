@@ -1,11 +1,26 @@
 import { useForm } from 'react-hook-form'
-import { Button, TextField, CircularProgress, Alert } from '@mui/material'
+import { Button, TextField, Alert } from '@mui/material'
+import { makeStyles } from '@mui/styles'
 import { Link } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 import { useState } from 'react'
 import Snack from '../Snack/Snack'
+import Loader from '../../Shared/Loader/Loader'
+
+const useStyles = makeStyles({
+  root: {
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'var(--clr-primary)',
+    },
+    '& .MuiInputLabel-outlined.Mui-focused': {
+      color: 'var(--clr-primary)',
+    },
+  },
+})
 
 const Register = ({ url, destination, history }) => {
+  // styled
+  const classes = useStyles()
   // states
   const [openRegisterSnackbar, setOpenRegisterSnackbar] = useState(false)
   // authentication stuff
@@ -24,48 +39,55 @@ const Register = ({ url, destination, history }) => {
     setOpenRegisterSnackbar(false)
   }
   return (
-    <form onSubmit={handleSubmit(handleRegister)}>
+    <form onSubmit={handleSubmit(handleRegister)} className="form">
       {isLoading ? (
-        <CircularProgress />
+        <Loader />
       ) : (
         <>
+          <h2 className="form__title">Register</h2>
           <TextField
+            className={classes.root}
             label="Name"
             placeholder="John Doe"
-            variant="standard"
+            sx={{ mb: 3, width: '100%' }}
+            variant="outlined"
             {...register('displayName')}
             required
           />
-          <br />
-          <br />
           <TextField
+            className={classes.root}
             label="Email"
             type="email"
             placeholder="example@domain.com"
-            variant="standard"
+            sx={{ mb: 3, width: '100%' }}
+            variant="outlined"
             {...register('email')}
             required
           />
-          <br />
-          <br />
           <TextField
+            className={classes.root}
             label="Password"
             type="password"
             placeholder="******"
-            variant="standard"
+            sx={{ mb: 3, width: '100%' }}
+            variant="outlined"
             {...register('password')}
             required
           />
-          <br />
           {authError && <Alert severity="error">{authError}</Alert>}
           <br />
-          <Button variant="contained" color="primary" type="submit">
+          <Button
+            variant="contained"
+            sx={{
+              background:
+                'linear-gradient(to left, var(--clr-primary), var(--clr-primary))',
+            }}
+            color="primary"
+            type="submit"
+          >
             Register
           </Button>
-          <br />
-          <br />
-          <hr />
-          <br />
+          <hr style={{ marginBlock: '20px' }} />
           <Link to={`${url}/login`}>Already Registered?</Link>
         </>
       )}

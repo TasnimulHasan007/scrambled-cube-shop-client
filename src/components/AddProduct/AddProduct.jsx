@@ -1,4 +1,4 @@
-import { TextField, Typography, Button, InputAdornment } from '@mui/material'
+import { TextField, Button, InputAdornment } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { makeStyles } from '@mui/styles'
 import useAuth from '../../hooks/useAuth'
@@ -7,31 +7,9 @@ import Snack from '../Snack/Snack'
 
 const useStyles = makeStyles({
   root: {
-    /* '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'green',
-    },
-    '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'red',
-    }, */
     '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: 'var(--clr-primary)',
     },
-    /* '& .MuiOutlinedInput-input': {
-      color: 'green',
-    },
-    '&:hover .MuiOutlinedInput-input': {
-      color: 'red',
-    }, */
-    // '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input': {
-    //   color: 'var(--clr-primary)',
-    // },
-    /* '& .MuiInputLabel-outlined': {
-      color: 'green',
-    },
-    '&:hover .MuiInputLabel-outlined': {
-      color: 'red',
-    },
-    */
     '& .MuiInputLabel-outlined.Mui-focused': {
       color: 'var(--clr-primary)',
     },
@@ -77,8 +55,8 @@ const AddProduct = () => {
   }
   return (
     <div>
-      <Typography variant="h5">Add a product</Typography>
       <form onSubmit={handleSubmit(addProduct)} className="form">
+        <h2 className="form__title">Add a product</h2>
         <TextField
           className={classes.root}
           sx={{ mb: 3, width: '100%' }}
@@ -118,7 +96,14 @@ const AddProduct = () => {
           {...register('img')}
           required
         />
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            background:
+              'linear-gradient(to left, var(--clr-primary), var(--clr-primary))',
+          }}
+        >
           Add
         </Button>
       </form>

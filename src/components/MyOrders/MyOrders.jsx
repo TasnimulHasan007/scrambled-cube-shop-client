@@ -9,12 +9,13 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  CircularProgress,
 } from '@mui/material'
 import { useEffect, useState } from 'react'
 import useAuth from '../../hooks/useFirebase'
 import { useConfirm } from 'material-ui-confirm'
 import Snack from '../Snack/Snack'
+import Loader from '../../Shared/Loader/Loader'
+import noOrder from '../../images/order.svg'
 
 const MyOrders = () => {
   // states
@@ -91,15 +92,7 @@ const MyOrders = () => {
         }
       />
       {loading ? (
-        <CircularProgress
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: 'var(--clr-primary)',
-          }}
-        />
+        <Loader />
       ) : (
         <Grid container spacing={3}>
           {orders.length ? (
@@ -190,7 +183,10 @@ const MyOrders = () => {
               </Grid>
             ))
           ) : (
-            <p>No orders to show</p>
+            <div className="empty">
+              <h1>No orders to show</h1>
+              <img src={noOrder} alt="" />
+            </div>
           )}
         </Grid>
       )}

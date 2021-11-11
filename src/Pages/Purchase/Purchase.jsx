@@ -36,7 +36,10 @@ const Purchase = () => {
         quantity={quantity}
       />
       <Header />
-      <Container maxWidth="xl" sx={{ py: 6 }}>
+      <Container
+        maxWidth="xl"
+        sx={{ py: 6, position: 'relative', minHeight: '400px' }}
+      >
         <Grid container spacing={4} sx={{ alignItems: 'center' }}>
           {product.name ? (
             <>
