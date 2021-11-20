@@ -12,7 +12,7 @@ Regardless of whether you are a competitive speedsolver or puzzle enthusiast, Sc
   <br>
   [Live Site](https://scrambled-cube-shop.web.app/)
   <br>
-  [Server Git repo](https://github.com/programming-hero-web-course-4/niche-website-server-side-TasnimulHasan007)
+  [Server Git repo](https://github.com/TasnimulHasan007/scrambled-cube-shop-server)
 
 ## What scrambled offers
 
